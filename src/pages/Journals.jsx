@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogBody, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Plus, BookOpen, Edit2, Trash2, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -128,8 +128,8 @@ export default function Journals() {
                 New Journal
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-lg bg-gradient-to-br from-[#FBF9F6] to-[#F5F0E8] border-2 border-[#E8DDD0]">
-              <DialogHeader>
+            <DialogContent className="sm:max-w-lg bg-gradient-to-br from-[#FBF9F6] to-[#F5F0E8] border-2 border-[#E8DDD0] p-0">
+              <DialogHeader className="bg-gradient-to-br from-[#FBF9F6] to-[#F5F0E8]">
                 <DialogTitle className="text-2xl font-bold text-[#3C3835] flex items-center gap-2">
                   <div className="w-10 h-10 bg-gradient-to-br from-[#8B7355] to-[#C4A57B] rounded-xl flex items-center justify-center shadow-md">
                     <BookOpen className="w-5 h-5 text-white" />
@@ -137,7 +137,7 @@ export default function Journals() {
                   {editingJournal ? "Edit Journal" : "Create New Journal"}
                 </DialogTitle>
               </DialogHeader>
-              <div className="space-y-5 mt-4">
+              <DialogBody className="space-y-5">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-[#3C3835] font-semibold text-sm">
                     Journal Name
@@ -191,7 +191,7 @@ export default function Journals() {
                   <Star className={`w-5 h-5 ${formData.is_default ? 'text-yellow-500 fill-current' : 'text-[#C4A57B]'}`} />
                 </div>
                 
-                <div className="flex gap-3 pt-4">
+                <div className="flex gap-3 pt-4 pb-2">
                   <Button 
                     type="button"
                     variant="outline"
@@ -211,7 +211,7 @@ export default function Journals() {
                     {editingJournal ? "Update Journal" : "Create Journal"}
                   </Button>
                 </div>
-              </div>
+              </DialogBody>
             </DialogContent>
           </Dialog>
         </div>
