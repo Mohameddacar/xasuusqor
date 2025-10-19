@@ -1,0 +1,67 @@
+{
+    "name": "Goal",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Goal title"
+      },
+      "description": {
+        "type": "string",
+        "description": "Goal description"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "health",
+          "career",
+          "relationships",
+          "personal",
+          "finance",
+          "learning"
+        ],
+        "description": "Goal category"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "active",
+          "completed",
+          "paused"
+        ],
+        "default": "active",
+        "description": "Goal status"
+      },
+      "target_date": {
+        "type": "string",
+        "format": "date",
+        "description": "Target completion date"
+      },
+      "extracted_from_entry": {
+        "type": "string",
+        "description": "Entry ID where goal was mentioned"
+      },
+      "progress_notes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "entry_id": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "description": "Progress updates from entries"
+      }
+    },
+    "required": [
+      "title"
+    ]
+  }

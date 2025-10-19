@@ -1,0 +1,30 @@
+{
+    "name": "Journal",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Journal name"
+      },
+      "description": {
+        "type": "string",
+        "description": "Journal description"
+      },
+      "color": {
+        "type": "string",
+        "description": "Journal theme color"
+      },
+      "icon": {
+        "type": "string",
+        "description": "Journal icon name"
+      },
+      "is_default": {
+        "type": "boolean",
+        "default": false,
+        "description": "Default journal for new entries"
+      }
+    },
+    "required": [
+      "name"
+    ]
+  }

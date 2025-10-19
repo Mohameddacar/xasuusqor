@@ -1,0 +1,129 @@
+{
+    "name": "JournalEntry",
+    "type": "object",
+    "properties": {
+      "journal_id": {
+        "type": "string",
+        "description": "Journal this entry belongs to"
+      },
+      "title": {
+        "type": "string",
+        "description": "Entry title"
+      },
+      "content": {
+        "type": "string",
+        "description": "Rich text content"
+      },
+      "summary": {
+        "type": "string",
+        "description": "AI-generated summary for long entries"
+      },
+      "date": {
+        "type": "string",
+        "format": "date",
+        "description": "Entry date"
+      },
+      "is_favorite": {
+        "type": "boolean",
+        "default": false,
+        "description": "Marked as favorite"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Entry tags (manual and AI-generated)"
+      },
+      "auto_tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "AI-generated tags"
+      },
+      "emotions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "AI-detected emotions (joy, stress, sadness, hope, anxiety, etc.)"
+      },
+      "location": {
+        "type": "object",
+        "description": "Entry location",
+        "properties": {
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "audio_url": {
+        "type": "string",
+        "description": "Attached audio recording URL"
+      },
+      "media_attachments": {
+        "type": "array",
+        "description": "Photos and videos attached to entry",
+        "items": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "image",
+                "video"
+              ]
+            },
+            "caption": {
+              "type": "string"
+            },
+            "auto_caption": {
+              "type": "string"
+            },
+            "extracted_text": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "template_used": {
+        "type": "string",
+        "description": "Template name if used"
+      },
+      "mood": {
+        "type": "string",
+        "enum": [
+          "great",
+          "good",
+          "okay",
+          "low",
+          "difficult"
+        ],
+        "description": "Mood for the day"
+      },
+      "source": {
+        "type": "string",
+        "enum": [
+          "web",
+          "email"
+        ],
+        "default": "web",
+        "description": "How the entry was created"
+      }
+    },
+    "required": [
+      "title",
+      "content",
+      "date"
+    ]
+  }
